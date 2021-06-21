@@ -1,5 +1,3 @@
-const text = []
-
 let numMoves = 0
 
 const config = { attributes: true, childList: true, subtree: true }
@@ -7,7 +5,9 @@ const config = { attributes: true, childList: true, subtree: true }
 //========================
 console.log('Hello from the content script! 7')
 //========================
-setTimeout(window.addEventListener('load', myMain, false), 5000)
+window.addEventListener('load', myMain, false)
+
+var fens = []
 
 const callback = function (mutationsList, observer) {
   for (const mutation of mutationsList) {
@@ -24,7 +24,15 @@ const callback = function (mutationsList, observer) {
     if (newArray.length > numMoves) {
       numMoves++
       console.log(newArray)
+      chrome.runtime.sendMessage(null, newArray, (response) => {
+        if (!fens.includes(response)) {
+          console.log(response)
+          fens.push(response)
+        }
+        
+      })
     }
+    
   }
 }
 
