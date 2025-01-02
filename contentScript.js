@@ -29,10 +29,8 @@ const callback = function (mutationsList, observer) {
           console.log(response)
           fens.push(response)
         }
-        
       })
     }
-    
   }
 }
 

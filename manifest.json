@@ -28,5 +28,9 @@
       "css": ["contentScript.css"],
       "js": ["contentScript.js"]
     }
-  ]
+  ],
+  "icons": {
+    "48": "icon.png",
+    "128": "icon.png"
+  }
 }

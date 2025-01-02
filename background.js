@@ -14,9 +14,11 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
     method: 'post',
     body: JSON.stringify(opts)
   }).then(function(response) {
+    console.log('1')
     response.json().then(function(result_json) {
       sendResponse(result_json['fen'])
     })
+    console.log('2')
   })
   return true
 })
